@@ -1,0 +1,25 @@
+<view>
+  <text class="title">工单详情</text>
+  <view class="content">
+     <view class="bot5">工单ID：{{workOrderId}}</view>
+     <view class="bot5">工单类型：{{type1}}</view>
+     <view class="bot5" wx:if="{{handleType==1}}">处理类型：立即处理</view>
+     <view class="bot5" wx:if="{{handleType==2}}">处理类型：时限处理</view>
+     <view class="bot5" wx:if="{{handleType==2}}">最后处理时间：{{lastHandleTime}}</view>
+     <view class="bot5" wx:if="{{acceptWorkOrderStatus==0}}">收单状态：未接单</view>
+     <view class="bot5" wx:if="{{acceptWorkOrderStatus==1}}">收单状态：已接单</view>
+     <view class="bot5">创建时间：{{createTime}}</view>
+     <view class="bot5"  wx:if="{{acceptWorkOrderStatus==1}}">收单时间：{{acceptWorkOrderTime}}</view>
+     <view class="bot5" wx:if="{{type==1||type==2}}">工单内容：{{content}}</view>
+     <view  wx:if="{{type==3}}">
+        <view class="bot5">维护计划id：{{maintainPlanId}}</view>
+        <view class="bot5">维护计划日期：{{maintainPlanDate}}</view>
+        <view class="bot5">设备id：{{equipmentId}}</view>
+        <view class="bot5">设备类型：{{equipmentType1}}</view>
+        <view class="bot5">设备名称：{{equipmentName}}</view>
+     </view>
+  </view>
+  <button class="btn" bindtap="acceptWorkOrder" disabled="{{dis}}" wx:if="{{acceptWorkOrderStatus==0}}">接受工单</button>
+  <button class="btn" bindtap="addWorkingBack"  wx:if="{{acceptWorkOrderStatus==1&&type!=3}}">提交反馈</button>
+  <button class="btn" bindtap="submitMaintainRecord"  wx:if="{{acceptWorkOrderStatus==1&&type==3}}">提交维保反馈</button>
+</view>

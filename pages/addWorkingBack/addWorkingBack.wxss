@@ -1,0 +1,40 @@
+/* pages/addWorkingBack/addWorkingBack.wxss */
+@import "../template/picDetail.wxss";
+page{
+  width: 100%;
+  height: 100%; 
+}
+.addBackContainer{
+  width: 94%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-size: 32rpx;
+  letter-spacing: 1rpx;
+  padding-bottom: 50rpx;
+  color: #555;
+}
+
+
+
+
+.btnContainer{
+  margin-top: 80rpx;
+  width: 100%;
+}
+.addBtn{
+  color: white;
+  font-size: 34rpx;
+  width:100%;
+  letter-spacing: 2rpx;
+}
+
+textarea{
+  width:100%;
+  border:1px solid #ccc;
+  margin:0 auto;
+  box-sizing: border-box;
+  padding-left:5px;
+  padding-top:5px;
+  font-size:32rpx;
+  border-radius:10rpx;
+}

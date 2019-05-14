@@ -1,0 +1,79 @@
+<!--pages/workingOrderList/workingOrderList.wxml-->
+<view class='workingContainer'>
+  <scroll-view scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="loadMore" bindscroll="scroll">
+    <view class='tabContainer'>
+      <view class='tabItem' style='background: {{TodayUnAcceptTabBack}};color:{{TodayUnAcceptColor}};' bindtap='TodayUnAccept'>今日未接工单</view>
+      <view class='tabItem' style='background: {{historyUnAcceptTabBack}};color:{{historyUnAcceptColor}};' bindtap='historyUnAccept'>历史未接工单</view>
+    </view>
+    <!-- 今日未接工单 -->
+    <view class='listContainer' style='display:{{TodayUnAcceptDisplay}}'>
+      <block wx:if="{{orderList.length > 0}}">
+        <view wx:for='{{orderList}}' wx:key="index" class='listItem1' style="position:relative;">
+          <view class="bot5">工单号：{{item.workOrderId}}</view>
+          <view wx:if="{{item.type==1}}">工单类型：人工派单 </view>
+          <view wx:if="{{item.type==2}}">工单类型：设备故障 </view>
+          <view wx:if="{{item.type==3}}">工单类型：定期保养</view>
+          <view class='workOrderName' wx:if="{{item.type==1||item.type==2}}">工单内容：{{item.content}}</view>
+          <view wx:if="{{item.type==3}}">
+            <view class="bot5">维护计划id：{{item.maintainPlanId}}</view>
+            <view class="bot5">维护计划日期：{{item.maintainPlanDate}}</view>
+            <view class="bot5">设备id：{{item.equipmentId}}</view>
+            <view class="bot5">设备类型：{{item.equipmentType1}}</view>
+            <view class="bot5">设备名称：{{item.equipmentName}}</view>
+          </view>
+          <view>
+            <text class='label'>处理类型：</text>
+            <text wx:if="{{item.handleType==1}}">立即处理</text>
+            <text wx:if="{{item.handleType==2}}">时限处理</text>
+          </view>
+          <view wx:if="{{item.handleType==2}}">
+            <text class='label'>最后处理时间：</text>{{item.lastHandleTime}}</view>
+          <view>派单时间：{{item.createTime}}</view>
+          <button bindtap="acceptWorkOrder" class="accept" data-workorderid='{{item.workOrderId}}' data-time="today" data-index="{{index}}" disabled="{{item.dis}}">接受工单</button>
+        </view>
+        <view class="bottom" hidden="{{hidecomplete}}">没有更多</view>
+      </block>
+      <block wx:else>
+        <view class='noData'>今日暂无未接工单!</view>
+      </block>
+    </view>
+    <!-- listContainer -->
+    <!-- 今日未接工单 -->
+
+    <!-- 历史未接工单 -->
+    <view class='listContainer' style='display:{{historyUnAcceptDisplay}}'>
+      <block wx:if="{{histroyOrderList.length > 0}}">
+        <view wx:for='{{histroyOrderList}}' wx:key="index" class='listItem1' style="position:relative;">
+          <view class="bot5">工单号：{{item.workOrderId}}</view>
+          <view wx:if="{{item.type==1}}">工单类型：人工派单 </view>
+          <view wx:if="{{item.type==2}}">工单类型：设备故障 </view>
+          <view wx:if="{{item.type==3}}">工单类型：定期保养</view>
+          <view class='workOrderName' wx:if="{{item.type==1||item.type==2}}">工单内容:{{item.content}}</view>
+          <view wx:if="{{item.type==3}}">
+            <view class="bot5">维护计划id：{{item.maintainPlanId}}</view>
+            <view class="bot5">维护计划日期：{{item.maintainPlanDate}}</view>
+            <view class="bot5">设备id：{{item.equipmentId}}</view>
+            <view class="bot5">设备类型：{{item.equipmentType1}}</view>
+            <view class="bot5">设备名称：{{item.equipmentName}}</view>
+          </view>
+          <view>
+            <text class='label'>处理类型：</text>
+            <text wx:if="{{item.handleType==1}}">立即处理</text>
+            <text wx:if="{{item.handleType==2}}">时限处理</text>
+          </view>
+          <view class='workOrderName' wx:if="{{item.handleType==2}}">
+            <text class='label'>最后处理时间：</text>{{item.lastHandleTime}}</view>
+          <view>派单时间：{{item.createTime}}</view>
+          <button bindtap="acceptWorkOrder" class="accept" data-workorderid='{{item.workOrderId}}' data-time="history" disabled="{{item.dis}}" data-index="{{index}}">接受工单</button>
+        </view>
+        <view class="bottom" hidden="{{hidecomplete}}">没有更多</view>
+      </block>
+      <block wx:else>
+        <view class='noData'>暂无历史未接工单！</view>
+      </block>
+    </view>
+    <!-- 历史未接工单 -->
+  </scroll-view>
+</view>
+
+<!-- workingContainer -->

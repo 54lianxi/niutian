@@ -1,0 +1,22 @@
+<view class='container'>
+  <view class='content'>
+    <view class='head'>绑定账户</view>
+    <view class='inputCon'>
+      <view class='input-container'>
+        <!-- <label>姓名:</label> -->
+        <input type='text' name='userName' placeholder='姓名' bindinput="userNameInput" focus='{{nameFocus}}' />
+      </view>
+      <view class='input-container'>
+        <!-- <label>手机号:</label> -->
+        <input type='number' name='mobile' placeholder='手机号' bindinput="mobileInput" focus='{{mobileFocus}}' />
+      </view>
+    </view>
+
+  </view>
+  <view class='btn-container'>
+    <button bindtap='send' class='sure' type='primary' disabled="{{dis}}">绑定</button>
+  </view>
+  <view class='tip-container'>
+    <view style="text-align:center;">(请填写已在后台开通权限的真实姓名和手机号，如有疑问，请与项目管理员联系)</view>
+  </view>
+</view>

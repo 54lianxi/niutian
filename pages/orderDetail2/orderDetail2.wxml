@@ -1,0 +1,41 @@
+<view>
+  <text class="title">工单详情</text>
+  <view class="content">
+     <view class="bot5">工单ID：{{workOrderId}}</view>
+     <view class="bot5">工单类型：{{type1}}</view>
+     <view class="bot5" wx:if="{{handleType==1}}">处理类型：立即处理</view>
+     <view class="bot5" wx:if="{{handleType==2}}">处理类型：时限处理</view>
+     <view class="bot5" wx:if="{{handleType==2}}">最后处理时间：{{lastHandleTime}}</view>
+     <!-- <view class="bot5" wx:if="{{acceptWorkOrderStatus==0}}">收单状态：未接单</view>
+     <view class="bot5" wx:if="{{acceptWorkOrderStatus==1}}">收单状态：已接单</view> -->
+     <!-- <view class="bot5">创建时间：{{createTime}}</view> -->
+     <view class="bot5" >工单内容：{{content}}</view>
+     <!-- <view  wx:if="{{type==3}}">
+        <view class="bot5">维护计划id：{{maintainPlanId}}</view>
+        <view class="bot5">维护计划日期：{{maintainPlanDate}}</view>
+        <view class="bot5">设备id：{{equipmentId}}</view>
+        <view class="bot5">设备类型：{{equipmentType1}}</view>
+        <view class="bot5">设备名称：{{equipmentName}}</view>
+     </view> -->
+     <view class="bot5">录单员id：{{submitOrderStaffId}}</view>
+     <view class="bot5">录单员员工姓名：{{submitOrderStaffName}}</view>
+     <view class="bot5" wx:if="{{sendWorkOrderStatus==0}}">工单状态：未发送</view>
+     <view class="bot5" wx:if="{{sendWorkOrderStatus==1}}">工单状态：已发送</view>
+     <view class="bot5">派单员工id：{{sendWorkOrderStaffId}}</view>
+     <view class="bot5">派单员工姓名：{{sendWorkOrderStaffName}}</view>
+     <view class="bot5" wx:if="{{sendWorkOrderType==1}}">派单类型：立即派单</view>
+     <view class="bot5" wx:if="{{sendWorkOrderType==2}}">派单类型：预定时间派单</view>
+     <view class="bot5">派单时间：{{sendWorkOrderTime}}</view>
+     <view class="bot5">收单员工列表：<text wx:for="{{sendtoStaffId}}" 
+       
+     wx:for-item="item">{{item.name}} </text></view>
+     <view class="bot5" wx:if="{{feedbackStatus==0}}">工单反馈状态：未反馈</view>
+     <view class="bot5" wx:if="{{feedbackStatus==1}}">工单反馈状态：已反馈</view>
+     <view class="bot5" wx:if="{{feedbackStatus==1}}">反馈员工id：{{feedbackStaffId}}</view>
+     <view class="bot5" wx:if="{{feedbackStatus==1}}">反馈员工姓名：{{feedbackStaffName}}</view>
+     <view class="bot5" wx:if="{{feedbackStatus==1}}">最后提交反馈单时间：{{lastFeedbackTime}}</view>
+     <!-- <view class="bot5">修改时间：{{modifyTime}}</view> -->
+  </view>
+
+  <button class="btn" bindtap="queryFeedbackList" >查询工单反馈列表</button>
+</view>

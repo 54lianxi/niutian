@@ -1,0 +1,12 @@
+<view class='container'>
+  <view class='content'>
+  <view id='icon-container'>
+    <icon type='clear'size='70' color='red'></icon>
+  </view>
+  <view class='errorMsg'>
+    <text>当前您未关注牛田机电公众号!</text>
+    <text>如需收到工单消息，需先关注牛田机电平台</text>
+    <button class="btn" bindtap="toIndex">前往首页</button>
+  </view>
+  </view>
+</view>

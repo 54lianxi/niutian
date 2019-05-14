@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+ <!-- style='display:{{display}}' -->
+  <view class='userInfoContainer'>
+    <view class="userinfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{nickName}}</text>
+    </view>
+  </view>
+<!-- userInfoContainer -->
+<view class='listContainer'>
+
+  <view wx:for="{{menuList}}" wx:key="index" class='listItem' bindtap='{{item.action}}'>
+    <block wx:if="{{item.title == '未接工单'}}">
+      <image src="{{item.image}}" class='list_image'></image>
+        <block wx:if="{{unacceptWorkOrderNum != 0}}">
+           <text class='badge'>{{unacceptWorkOrderNum}}</text>
+        </block>
+      <view class='list_title'>{{item.title}}</view>
+    </block>
+    <block wx:else>
+      <image src="{{item.image}}" class='list_image'></image>
+      <view class='list_title'>{{item.title}}</view>
+    </block>
+  </view>
+    <view bindtap='queryProjectList2'  wx:if="{{addShow}}" class='listItem'> 
+      <image src="../image/add.png" class='list_image'></image>
+      <view class='list_title'>增加工单</view>
+  </view>
+  
+
+
+</view>
+<!-- listContainer -->
+</view>
+

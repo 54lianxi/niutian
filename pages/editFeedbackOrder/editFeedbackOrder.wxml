@@ -1,0 +1,129 @@
+<!--pages/addWorkingBack/addWorkingBack.wxml-->
+<view class='addBackContainer' style='display:{{display}}'>
+    <view class='head'>修改反馈工单</view>
+    <view class='col'>
+          <view class="date-container">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="{{date}}" bindchange="bindDateChange">
+              <view class="choosedDate">施工日期: {{detailObj.constructDate}}</view>
+            </picker>
+          </view>
+  <!-- date-container -->
+    </view>
+<!-- col -->
+    <view class='col'>
+      <view class="date-container">
+      <picker bindchange="bindTeamChange" value="{{index}}" range="{{constructTeam}}">
+        <view class="constructTeam">施工队:    {{detailObj.constructTeam}}</view>
+      </picker>
+      </view>
+      <!-- date-container -->
+    </view>
+<!-- col -->
+<!-- <view class='inputContainer'>
+  <label>施工队:</label>
+  <input type='text' bindinput='constructTeamInput' value="{{detailObj.constructTeam}}"></input>
+</view> -->
+    <view class='inputContainer'>
+      <label>井号:</label>
+      <input type='text' class='wellId' bindinput='wellNoInput' value="{{detailObj.wellNo}}"></input>
+    </view>
+    <view class='inputContainer'>
+      <label>井型:</label>
+      <input type='text' class='wellType' bindinput='wellTypeInput' value="{{detailObj.wellType}}"></input>
+    </view>
+    <view class='inputContainer'>
+      <label>所属采油单位:</label>
+      <input type='text' bindinput='oilExtractionCompanyInput' value="{{detailObj.oilExtractionCompany}}"></input>
+    </view>
+    <view class='inputContainer'>
+      <label>射孔段(m):</label>
+      <input bindinput='perforatedIntervalInput' value="{{detailObj.perforatedInterval}}"></input>
+    </view>
+
+    <view class='inputContainer'>
+      <label>压裂工艺:</label>
+      <input type='text' bindinput='fracturingTechniqueInput' value="{{detailObj.fracturingTechnique}}"></input>
+    </view>
+
+    <view class='inputContainer'>
+      <label>施工排量:</label>
+      <input type='text' bindinput='constructDisplacementInput' value="{{detailObj.constructDisplacement}}"></input>
+    </view>
+
+    <view class='inputContainer'>
+      <label>油压（MPa）:</label>
+      <input bindinput='oilPressureInput' value="{{detailObj.oilPressure}}"></input>
+    </view>
+
+    <view class='inputContainer'>
+      <label>套压（MPa）:</label>
+      <input bindinput='casingPressureInput' value="{{detailObj.casingPressure}}"></input>
+    </view>
+
+    <view class='inputContainer'>
+      <label>滑溜水量(m³):</label>
+      <input type='digit' bindinput='slickwaterAmountInput' value="{{detailObj.slickwaterAmount}}"></input>
+    </view>
+
+    <view class='inputContainer'>
+      <label>冻胶量(m³):</label>
+      <input type='digit' bindinput='gelAmountInput' value="{{detailObj.gelAmount}}"></input>
+    </view>
+        <view style="height:1px;margin-bottom:10px;box-shadow:0px 1px 0px;margin-top:10px;"></view>
+    <view class="xian">
+      <text>陶粒量(m³):</text>
+      <view class='inputContainer'>
+        <label>20/40陶粒</label>
+        <input type='digit' bindinput='ceramsiteAmount1Input' value="{{detailObj.ceramsiteAmount1}}"></input>
+      </view>
+      <view class='inputContainer'>
+        <label>30/50陶粒</label>
+        <input type='digit' bindinput='ceramsiteAmount2Input' value="{{detailObj.ceramsiteAmount2}}"></input>
+      </view>
+      <view class='inputContainer'>
+        <label>40/70陶粒</label>
+        <input type='digit' bindinput='ceramsiteAmount3Input' value="{{detailObj.ceramsiteAmount3}}"></input>
+      </view>
+      <view class='inputContainer'>
+        <label>70/140陶粒</label>
+        <input type='digit' bindinput='ceramsiteAmount4Input' value="{{detailObj.ceramsiteAmount4}}"></input>
+      </view>
+    </view>
+
+    <view class="xian">
+      <text>石英砂量(m³):</text>
+      <view class='inputContainer'>
+        <label>20/40石英砂</label>
+        <input type='digit' bindinput='quartzSandAmount1Input' value="{{detailObj.quartzSandAmount1}}"></input>
+      </view>
+      <view class='inputContainer'>
+        <label>30/50石英砂</label>
+        <input type='digit' bindinput='quartzSandAmount2Input' value="{{detailObj.quartzSandAmount2}}"></input>
+      </view>
+      <view class='inputContainer'>
+        <label>40/70石英砂</label>
+        <input type='digit' bindinput='quartzSandAmount3Input' value="{{detailObj.quartzSandAmount3}}"></input>
+      </view>
+      <view class='inputContainer'>
+        <label>覆膜砂</label>
+      <input type='digit' bindinput='quartzSandAmount4Input' value="{{detailObj.quartzSandAmount4}}"></input>
+      </view>
+    </view>
+
+
+    <view class='inputContainer'>
+      <label>停泵压力(MPa):</label>
+      <input type='number' bindinput='stopPumpPressureInput' value="{{detailObj.stopPumpPressure}}"></input>
+    </view>
+
+    <view class='textareaContainer'>
+      <label>备注:</label>
+      <textarea cursor-spacing='100' bindconfirm="remarkConfirm" bindinput="remarkInput" value="{{detailObj.remark}}"></textarea>
+    </view>
+
+    <view class='btnContainer'>
+      <button type='primary' class='addBtn' bindtap='editFeedback' disabled="{{disabled}}">确定修改</button>
+    </view>
+</view>
+
+

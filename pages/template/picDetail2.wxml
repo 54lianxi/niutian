@@ -1,0 +1,6 @@
+<template name="picDetail2">
+   <view class="picDetail" wx:if="{{picDetailShow}}">
+    <image src="{{picUrl}}" mode="widthFix" style="width:90%;margin-left:5%;margin-top:150rpx;"></image>
+    <image src="../image/close.png" style="width:60rpx;height:60rpx;position:absolute;top:50rpx;right:50rpx;" bindtap="close"></image>
+  </view>
+</template>

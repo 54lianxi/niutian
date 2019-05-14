@@ -1,0 +1,38 @@
+<view>
+  <view>
+    <picker range="{{equipmentType1}}" value="{{index}}" style="font-size:32rpx;line-height:40px;width:50%;overflow:hidden;width:100%;color:#555;" bindchange="change">
+      <text style="display:block;margin-left:12px;font-size:34rpx;float:left;width:60%;text-align:left;">设备类型:{{type}}</text>
+      <image src="../image/bottom.png" style="width:20px;height:20px;float:right;margin-top:10px;margin-right:100rpx;"></image>
+    </picker>
+  </view>
+  <view style="overflow:hidden;">
+    <input placeholder="设备名称" bindinput='equipmentNameInput' value="{{equipmentName}}" style="float:left;"></input>
+    <!-- <button class="btn" style="margin-top:15px;margin-bottom:5px;width:20%;" bindtap="search">查询</button> -->
+    <image bindtap="search" src="../image/search.png" style="width:60rpx;float:right;margin-right:10px;" mode="widthFix"></image>
+  </view>
+  
+  <button class="btn add" bindtap="submitAccounting" style="background:rgba(26,173,25,0.9);">录入台账</button>
+  <block wx:for="{{list}}" wx:for-item="item">
+    <view class="listItem">
+      <navigator url="/pages/Accounting/Accounting?projectId={{item.projectId}}&&equipmentId={{item.equipmentId}}&&companyId={{item.companyId}}&&companyName={{item.companyName}}&&projectName={{item.projectName}}&&equipmentAccountingNo={{item.equipmentAccountingNo}}&&equipmentType={{item.equipmentType}}&&equipmentName={{item.equipmentName}}&&equipmentModel={{item.equipmentModel}}&&equipmentParameters={{item.equipmentParameters}}&&equipmentParts={{item.equipmentParts}}&&equipmentPhoto={{item.equipmentPhoto}}&&manufacturer={{item.manufacturer}}&&manufacturingDate={{item.manufacturingDate}}&&manufacturingNo={{item.manufacturingNo}}&&installPlace={{item.installPlace}}&&installDate={{item.installDate}}&&submitStaffId={{item.submitStaffId}}&&submitStaffName={{item.submitStaffName}}&&modifyTime={{item.modifyTime}}&&createTime={{item.createTime}}">
+        <view wx:if="{{item.equipmentType=='QD'}}">设备类型：强电</view>
+        <view wx:if="{{item.equipmentType=='RD'}}">设备类型：弱电</view>
+        <view wx:if="{{item.equipmentType=='KT'}}">设备类型：空调</view>
+        <view wx:if="{{item.equipmentType=='JPS'}}">设备类型：给排水</view>
+        <view wx:if="{{item.equipmentType=='XF'}}">设备类型：消防</view>
+        <view wx:if="{{item.equipmentType=='DT'}}">设备类型：电梯</view>
+        <view wx:if="{{item.equipmentType=='QT'}}">设备类型：其它</view>
+        <!-- <view>公司名称：{{item.companyName}}</view> -->
+        <view>设备台帐编号：{{item.equipmentAccountingNo}}</view>
+        <view>设备名称：{{item.equipmentName}}</view>
+      </navigator>
+    </view>
+  </block>
+  <view>
+    <text class="point" wx:if="{{nomore}}">已无更多</text>
+  </view>
+  <view>
+    <text class="point" wx:if="{{nodata}}">您暂时还没有任何记录</text>
+  </view>
+  <view style="width:100%;height:60px;"></view>
+</view>

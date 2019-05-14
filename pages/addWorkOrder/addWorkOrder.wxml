@@ -1,0 +1,62 @@
+<view>
+  <text class="title">增加工单</text>
+  <view>
+    <textarea placeholder='工单内容' bindinput='contentInput'></textarea>
+  </view>
+  <view>
+    <picker range="{{sendWorkOrderType1}}" value="{{index}}" class="picker" bindchange="change">
+      <text>派单方式：{{type}}</text>
+      <image src="../image/bottom.png"></image>
+    </picker>
+  </view>
+  <view wx:if="{{sendWorkOrderType==2}}">
+    <picker mode="date" value="{{date}}" start="{{start}}" end="2040-09-01" bindchange="WorkOrderTime" class="picker">
+      <text>派单日期：{{sendWorkOrderTime}}</text>
+      <image src="../image/bottom.png" style=""></image>
+    </picker>
+  </view>
+    <view wx:if="{{sendWorkOrderType==2}}">
+    <picker mode="time" value="{{time}}"  class="picker" bindchange="bindTimeChange">
+      <text>派单时间：{{a}}</text>
+      <image src="../image/bottom.png" style=""></image>
+    </picker>
+  </view>
+  <!-- <view wx:if="{{sendWorkOrderTimeShow}}">
+    <picker mode="time" value="{{date}}" start="{{start}}" end="2040-09-01" bindchange="WorkOrderTime" class="picker">
+      <text>派单时间：{{sendWorkOrderTime}}</text>
+      <image src="../image/bottom.png" style=""></image>
+    </picker>
+  </view> -->
+  <view wx:if="{{sendWorkOrderType==1}}">
+    <picker range="{{handleType1}}" value="{{index}}" class="picker" bindchange="change2">
+      <text>处理方式：{{hType}}</text>
+      <image src="../image/bottom.png"></image>
+    </picker>
+  </view>
+  <view wx:if="{{sendWorkOrderType==2}}" style="margin-left:12px;font-size:34rpx;height:40px;line-height:40px;color:#555;">处理方式：时限处理</view>
+  <view wx:if="{{handleType==2}}">
+    <picker mode="date" value="{{date}}" start="{{start}}" end="2040-09-01" bindchange="lastHandle" class="picker">
+      <text>处理日期：{{lastHandleTime}}</text>
+      <image src="../image/bottom.png" style=""></image>
+    </picker>
+  </view>
+  <view wx:if="{{handleType==2}}">
+    <picker mode="time" value="{{time}}"  class="picker" bindchange="bindTimeChange2">
+      <text>处理时间：{{b}}</text>
+      <image src="../image/bottom.png" style=""></image>
+    </picker>
+  </view>
+  <view class="addMan">
+    <view>收单员工列表</view>
+    <checkbox-group bindchange="checkboxChange">
+
+      <label class="checkbox" wx:for="{{Staff}}">
+        <view style="display:inline-block;">
+          <checkbox value="{{item.staffId}}" />{{item.name}}
+        </view>
+      </label>
+
+    </checkbox-group>
+  </view>
+  <button class="btn" bindtap="submit" disabled="{{dis}}" style="margin-top:50rpx;">提交</button>
+</view>

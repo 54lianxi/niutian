@@ -1,0 +1,12 @@
+<view class='container'>
+  <view class='content'>
+  <view id='icon-container'>
+    <icon type='clear'size='70' color='red'></icon>
+  </view>
+  <view class='errorMsg'>
+    <text>当前您未绑定员工账号，将无法进行正常操作，请前往绑定</text>
+    <button class="btn" bindtap="toBind">前往绑定</button>
+  </view>
+  </view>
+</view>
+

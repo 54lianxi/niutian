@@ -1,0 +1,20 @@
+<view>
+  <text class="title">项目列表</text>
+  <view>
+  <block wx:for="{{list}}" wx:for-item="item">
+    <view class="listItem">   
+      <navigator url="/pages/equipmentAccounting/equipmentAccounting?projectId={{item.projectId}}&&projectName={{item.projectName}}">   
+       <view>项目ID：{{item.projectId}}</view>
+       <view>项目名称：{{item.projectName}}</view>
+       <view>项目地址：{{item.projectAddress}}</view>
+      </navigator> 
+     </view>
+     </block>
+  </view>
+  <view>
+       <text class="point" wx:if="{{nomore}}">已无更多</text>
+  </view>
+  <view>
+       <text class="point" wx:if="{{nodata}}">您暂时还没有任何记录</text>
+  </view>
+</view>

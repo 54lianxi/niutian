@@ -1,0 +1,14 @@
+@import "../template/picDetail.wxss";
+.content{
+  font-size:32rpx;
+  margin:0 12px;
+  color:#555;
+}
+.bot5{
+  margin-bottom:5px;
+}
+/* .row{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */

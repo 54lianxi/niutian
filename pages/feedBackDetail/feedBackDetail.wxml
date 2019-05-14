@@ -1,0 +1,21 @@
+<import src="../template/picDetail2.wxml" />
+<view>
+  <text  class="title">反馈详情</text>
+  <view class="content">
+    <view class="bot5">反馈单号：{{feedbackOrderId}}</view>
+    <view class="bot5">反馈内容：{{content}}</view>
+    <view class="bot5">反馈单提交者姓名：{{submitOrderStaffName}}</view>
+    <view class="bot5">反馈单提交时间：{{submitOrderTime}}</view>
+    <view class="bot5">
+     <view class="bot5">图片：</view>
+      <view>
+       <!-- style="margin-left:10px;margin-right:10px;margin-bottom:10px;" -->
+      <block wx:for="{{picture}}" wx:for-item="item">
+        <image src="{{item}}" wx:if="{{index!=2}}" mode="widthFix" style="width:30%;margin-right:5%;" bindtap="picDetail" data-index="{{index}}"></image>
+        <image src="{{item}}" wx:else mode="widthFix" style="width:30%;" bindtap="picDetail" data-index="2"></image>
+      </block>
+    </view>
+     </view>
+  </view>
+</view>
+<template is="picDetail2" data="{{picDetailShow:picDetailShow,picUrl:picUrl}}"/>

@@ -1,0 +1,108 @@
+/* pages/addWorkingBack/addWorkingBack.wxss */
+page{
+  width: 100%;
+  /* height: 100%;  */
+}
+.addBackContainer{
+  width: 94%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-size: 32rpx;
+  letter-spacing: 1rpx;
+  padding-bottom: 50rpx;
+  color: #555;
+}
+.head{
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-weight: 500;
+  letter-spacing: 5rpx;
+  font-size: 45rpx;
+  color: #777;
+}
+
+.col{
+  height:80rpx;
+  line-height:80rpx;
+  color: #555;
+  padding-top: 15rpx;
+}
+.date-container{
+  position: relative; 
+ padding-right: 30rpx;
+padding-left: 110rpx;
+}
+.date-container::after{
+   position: absolute; 
+  right: 220rpx;
+  top: 33rpx;
+  font-weight: bold;
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-top: 6rpx solid black;
+  border-right: 6rpx solid black;
+  -webkit-transform: rotate(135deg); 
+  transform: rotate(135deg);  
+}
+.constructTeam{
+  margin-left: 32rpx;
+}
+.inputContainer{
+  display: flex;
+  height: 85rpx;
+  line-height: 85rpx;
+  margin-top: 30rpx;
+}
+.inputContainer label{
+  min-width: 248rpx;
+  text-align: right;
+  /* border: 1rpx solid red; */
+}
+.inputContainer input{ 
+  width: 350rpx;
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  padding-left:25rpx;
+  height: 85rpx;
+  font-size: 32rpx;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  margin-left: 15rpx;
+}
+.textareaContainer{
+   display: flex; 
+  min-height: 150rpx;
+  margin-top: 30rpx;
+}
+.textareaContainer label{
+   min-width: 248rpx;
+  text-align: right;
+}
+.textareaContainer textarea{
+  width: 350rpx;
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  padding-left:25rpx;
+  padding-top: 10rpx;
+  height: 150rpx;
+  font-size: 32rpx;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  margin-left: 15rpx;
+}
+.btnContainer{
+  margin-top: 80rpx;
+  width: 100%;
+}
+.addBtn{
+  color: white;
+  font-size: 34rpx;
+  width:100%;
+  letter-spacing: 2rpx;
+}
+.xian{
+  margin-bottom:10px;
+  padding-bottom:10px;
+  box-shadow:0px 1px 0px;
+}
+

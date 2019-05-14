@@ -1,0 +1,24 @@
+<import src="../template/picDetail2.wxml" />
+<view>
+  <text class="title">维保记录详情</text>
+  <view class="content">
+     <view class="bot5">维护记录id：{{maintainRecordId}}</view>
+     <view class="bot5">维护计划id：{{maintainPlanId}}</view>
+     <view class="bot5">维护计划日期：{{maintainPlanDate}}</view>
+     <view class="bot5">维护备注：{{maintainRemark}}</view>
+     <view class="bot5">
+        <view>维护照片：</view>
+        <view>
+          <block wx:for="{{maintainPhoto}}" wx:for-item="item" wx:for-index="index"> 
+            <image src="{{item}}" mode="widthFix" wx:if="{{index!=2}}" style="width:30%;margin-right:5%;" bindtap="picDetail" data-index="{{index}}"></image>
+            <image src="{{item}}" mode="widthFix" wx:if="{{index==2}}" style="width:30%;"  bindtap="picDetail"  data-index="{{index}}"></image>
+          </block>
+        </view>
+     </view>
+     <view class="bot5">提交人id：{{submitStaffId}}</view>
+     <view class="bot5">提交人姓名：{{submitStaffName}}</view>
+     <!-- <view class="bot5">修改时间:{{modifyTime}}</view> -->
+     <view class="bot5">创建时间：{{createTime}}</view>
+  </view>
+</view>
+<template is="picDetail2" data="{{picDetailShow:picDetailShow,picUrl:picUrl}}"/>

@@ -1,0 +1,72 @@
+<!--pages/hasAcceptedOrderList/hasAcceptedOrderList.wxml-->
+<view class='workingContainer'>
+  <scroll-view scroll-y='true' style="height:{{scrollHeight}}px;"  bindscrolltolower="loadMore">
+    <view class='tabContainer'> 
+      <view class='tabItem' style='background: {{TodayhasAcceptedTabBack}};color:{{TodayhasAcceptedColor}};' bindtap='TodayhasAccepted'>今日已接工单</view>   
+      <view class='tabItem' style='background: {{historyhasAcceptedTabBack}};color:{{historyhasAcceptedColor}};' bindtap='historyhasAccepted'>历史已接工单</view>
+    </view> 
+  <!-- 今日已接工单 -->
+    <view class='listContainer'  style='display:{{TodayhasAcceptedDisplay}}'>
+      <block wx:if="{{orderList.length != 0}}">
+        <view wx:for='{{orderList}}' wx:key="index" class='listItem1' style="position:relative;">
+        <view class="bot5">工单号：{{item.workOrderId}}</view>
+          <view><text class='label'>工单类型：</text> 
+            <text wx:if="{{item.type==1}}">人工派单 </text>
+            <text wx:if="{{item.type==2}}">设备故障 </text>
+            <text wx:if="{{item.type==3}}">定期保养</text>
+          </view>
+          <view class='workOrderName'  wx:if="{{item.type==1||item.type==2}}"><text class='label' >工单内容：</text>{{item.content}}</view>
+          <view wx:if="{{item.type==3}}">
+            <view class="bot5">维护计划id：{{item.maintainPlanId}}</view>
+            <view class="bot5">维护计划日期：{{item.maintainPlanDate}}</view>
+            <view class="bot5">设备id：{{item.equipmentId}}</view>
+            <view class="bot5">设备类型：{{item.equipmentType1}}</view>
+            <view class="bot5">设备名称：{{item.equipmentName}}</view>
+          </view>
+          <view><text class='label'>处理类型：</text> <text wx:if="{{item.handleType==1}}">立即处理</text><text wx:if="{{item.handleType==2}}">时限处理</text></view>
+          <view class='workOrderName' wx:if="{{item.handleType==2}}"><text class='label'>最后处理时间：</text>{{item.lastHandleTime}}</view>
+          <view>收单时间：{{item.acceptWorkOrderTime}}</view>
+          <button bindtap="feedbackOrder"  class="accept" data-workorderid='{{item.workOrderId}}' data-type="{{item.type}}" data-equipmentid="{{item.equipmentId}}" data-maintainplanid="{{item.maintainPlanId}}" data-maintainplandate="{{item.maintainPlanDate}}" data-equipmenttype="{{item.equipmentType}}" data-equipmentname="{{item.equipmentName}}">工单反馈</button>
+        </view><!-- for -->
+        <view class="bottom" hidden="{{hidecomplete}}">没有更多</view>
+      </block>
+      <block wx:else>
+        <view class='noData'>今日暂无已接工单！</view>
+      </block> 
+    </view> <!-- listContainer -->
+ <!-- 今日已接工单 -->
+
+<!-- 历史已接工单 -->
+    <view class='listContainer'  style='display:{{historyhasAcceptedDisplay}}'>
+      <block wx:if="{{histroyOrderList.length != 0}}">
+        <view wx:for='{{histroyOrderList}}' wx:key="index" class='listItem1' style="position:relative;">
+        <view class="bot5">工单号：{{item.workOrderId}}</view>
+          <view><text class='label'>工单类型：</text>
+          <text wx:if="{{item.type==1}}">人工派单 </text>
+            <text wx:if="{{item.type==2}}">设备故障 </text>
+            <text wx:if="{{item.type==3}}">定期保养</text>
+          </view>
+          <view class='workOrderName' wx:if="{{item.type==1||item.type==2}}"><text class='label'>工单内容：</text>{{item.content}}</view>
+          <view wx:if="{{item.type==3}}">
+            <view class="bot5">维护计划id：{{item.maintainPlanId}}</view>
+            <view class="bot5">维护计划日期：{{item.maintainPlanDate}}</view>
+            <view class="bot5">设备id：{{item.equipmentId}}</view>
+            <view class="bot5">设备类型：{{item.equipmentType1}}</view>
+            <view class="bot5">设备名称：{{item.equipmentName}}</view>
+          </view>
+          <view><text class='label'>处理类型：</text> <text wx:if="{{item.handleType==1}}">立即处理</text><text wx:if="{{item.handleType==2}}">时限处理</text></view>
+          <view class='workOrderName' wx:if="{{item.handleType==2}}"><text class='label'>最后处理时间：</text> {{item.lastHandleTime}}</view>
+          <view>收单时间：{{item.acceptWorkOrderTime}}</view>
+          <button bindtap="feedbackOrder"  class="accept" data-workorderid='{{item.workOrderId}}' data-type="{{item.type}}"  data-equipmentid="{{item.equipmentId}}" data-maintainplanid="{{item.maintainPlanId}}" data-maintainplandate="{{item.maintainPlanDate}}" data-equipmenttype="{{item.equipmentType}}" data-equipmentname="{{item.equipmentName}}">工单反馈</button>
+        </view><!-- for -->
+        <view class="bottom" hidden="{{hidecomplete}}">没有更多</view>
+      </block>
+      <block wx:else>
+        <view class='noData'>暂无历史已接工单！</view>
+      </block> 
+    </view> <!-- listContainer -->
+ <!-- 历史已接工单 -->
+  </scroll-view>
+
+</view>
+<!-- workingContainer -->

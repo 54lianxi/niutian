@@ -1,0 +1,19 @@
+@import "../template/picDetail.wxss";
+.content{
+  font-size:32rpx;
+  margin:0 12px;
+  color:#555;
+}
+.bot5{
+  margin-bottom:5px;
+}
+textarea{
+  width:100%;
+  border:1px solid #ccc;
+  margin:0 auto;
+  box-sizing: border-box;
+  padding-left:5px;
+  padding-top:5px;
+  font-size:32rpx;
+  border-radius: 10rpx;
+}

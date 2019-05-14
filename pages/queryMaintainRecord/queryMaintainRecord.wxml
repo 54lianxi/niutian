@@ -1,0 +1,23 @@
+<view>
+  <text class="title">查询维保记录</text>
+  <view>
+  <block wx:for="{{list}}" wx:for-item="item">
+    <view class="listItem">   
+      <navigator url="/pages/MaintainPlanDetail/MaintainPlanDetail?maintainRecordId={{item.maintainRecordId}}&&maintainPlanId={{item.maintainPlanId}}&&maintainPlanDate={{item.maintainPlanDate}}&&maintainRemark={{item.maintainRemark}}&&maintainPhoto={{item.maintainPhoto}}&&submitStaffId={{item.submitStaffId}}&&submitStaffName={{item.submitStaffName}}&&modifyTime={{item.modifyTime}}&&createTime={{item.createTime}}">   
+       <view>维护记录id：{{item.maintainRecordId}}</view>
+       <view>维护计划id：{{item.maintainPlanId}}</view>
+       <view>维护计划日期：{{item.maintainPlanDate}}</view>
+      </navigator> 
+     </view>
+     </block>
+  </view>
+  <view>
+       <text class="point" wx:if="{{nomore}}">已无更多</text>
+  </view>
+  <view>
+       <text class="point" wx:if="{{nodata}}">您暂时还没有任何记录</text>
+  </view>
+  <button class="btn" style="margin-top:20px;margin-bottom:20px;" bindtap="submitMaintainRecord" wx:if="{{addShow}}">添加维保反馈</button>
+</view>
+
+<import src="../template/picDetail.wxml" />

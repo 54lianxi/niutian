@@ -1,0 +1,25 @@
+<!--pages/workingOrderBackList/workingOrderBackList.wxml-->
+<view class='backContainer' style='display:{{display}}'>
+ <scroll-view scroll-y='true' style="height:{{scrollHeight}}px;"  bindscrolltolower="loadMore">
+    <!-- <view class='headBar'>反馈单列表</view>   -->
+    <view class='listContainer'>
+      <block wx:if="{{list.length != 0}}">
+        <view wx:for="{{list}}" wx:key="index" class='listItem' >  
+        <navigator url="/pages/feedBackDetail/feedBackDetail?feedbackOrderId={{item.feedbackOrderId}}&&content={{item.content}}&&submitOrderStaffName={{item.submitOrderStaffName}}&&submitOrderTime={{item.submitOrderTime}}&&picture={{item.picture}}">        
+          <view>反馈单号： {{item.feedbackOrderId}}</view>
+          <view>反馈内容： {{item.content}}</view>
+          <view>反馈单提交者姓名： {{item.submitOrderStaffName}}</view>
+          <view>反馈单提交时间： {{item.submitOrderTime}}</view>
+        </navigator>
+        </view>
+        <view class="bottom" hidden="{{hidecomplete}}">没有更多</view>
+      </block>
+      <block wx:else>
+        <view class='noData'>暂无反馈记录!</view>
+      </block>
+    </view> <!-- listContainer -->
+     <view class='addContainer' wx:if="{{addShow}}">
+      <button type='primary' class='add' bindtap='addOrderBack' style="margin-bottom:20px;">添加反馈</button>
+    </view> 
+  </scroll-view>
+</view>

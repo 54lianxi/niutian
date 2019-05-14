@@ -1,0 +1,43 @@
+{
+  "pages":[    
+    "pages/index/index", 
+    "pages/authorization/authorization", 
+   "pages/unConfirmOrderList/unConfirmOrderList", 
+    "pages/hasAcceptedOrderList/hasAcceptedOrderList",
+    "pages/noAttentionApp/noAttentionApp",
+    "pages/nowBindStaff/nowBindStaff",
+    "pages/addWorkingBack/addWorkingBack",
+    "pages/editFeedbackOrder/editFeedbackOrder",
+    "pages/feedBackOrderList/feedBackOrderList",
+    "pages/success/success",
+    "pages/queryProjectList/queryProjectList",
+    "pages/equipmentAccounting/equipmentAccounting",
+    "pages/submitAccounting/submitAccounting",
+    "pages/Accounting/Accounting",
+    "pages/queryMaintainRecord/queryMaintainRecord",
+    "pages/queryMaintainPlan/queryMaintainPlan",
+    "pages/submitMaintainRecord/submitMaintainRecord",
+    "pages/messagesuccess/messagesuccess",
+    "pages/MaintainPlanDetail/MaintainPlanDetail",
+    "pages/orderDetail/orderDetail",
+    "pages/feedBackDetail/feedBackDetail",
+    "pages/noBind/noBind",
+    "pages/queryProjectList2/queryProjectList2",
+    "pages/queryList/queryList",
+    "pages/addWorkOrder/addWorkOrder",
+    "pages/orderDetail2/orderDetail2",
+    "pages/editAccounting/editAccounting"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#F4F1F1",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "networkTimeout": {
+    "request": 40000,
+    "connectSocket": 40000,
+    "uploadFile": 40000,
+    "downloadFile": 40000
+  }
+}

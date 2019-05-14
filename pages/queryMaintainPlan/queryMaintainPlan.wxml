@@ -1,0 +1,20 @@
+<view>
+  <text class="title">维保计划</text>
+  <view>
+  <block wx:for="{{list}}" wx:for-item="item">
+    <view class="listItem1">   
+       <view>维保计划id:{{item.maintainPlanId}}</view>
+       <view>维保日期:{{item.maintainDate}}</view>
+       <view>维护人员姓名:{{item.maintainStaffName}}</view>
+       <view>录单人员姓名:{{item.submitStaffName}}</view>
+       <view>录单时间:{{item.createTime}}</view>
+     </view>
+     </block>
+  </view>
+  <view>
+       <text class="point" wx:if="{{nomore}}">已无更多</text>
+  </view>
+  <view>
+       <text class="point" wx:if="{{nodata}}">您暂时还没有任何记录</text>
+  </view>
+</view>

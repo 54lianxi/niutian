@@ -1,0 +1,10 @@
+/* pages/queryMaintainPlan/queryMaintainPlan.wxss */
+.listItem1{
+  min-height: 90rpx;
+  border-bottom: 2rpx solid #eeeeee;
+  padding: 10rpx 0rpx 10rpx 30rpx;
+  font-size: 32rpx;
+  position: relative;
+  color: #555;
+  letter-spacing: 2rpx;
+}

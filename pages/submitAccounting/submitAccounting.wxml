@@ -1,0 +1,63 @@
+<import src="../template/picDetail.wxml" />
+<view>
+  <text class="title">录入台账</text>
+  <view>
+    <view>
+      <input placeholder='设备台帐编号(选填)' bindinput='equipmentAccountingNoInput'></input>
+    </view>
+    <view>
+      <picker range="{{equipmentType1}}" value="{{index}}" class="picker" bindchange="change">
+        <text>设备类型:{{type1}}</text>
+        <image src="../image/bottom.png"></image>
+      </picker>
+    </view>
+    <view>
+      <input placeholder='设备名称' bindinput='equipmentNameInput'></input>
+    </view>
+    <view>
+      <input placeholder='设备型号规格(选填)' bindinput='equipmentModelInput'></input>
+    </view>
+    <view>
+      <input placeholder='设备参数(选填)' bindinput="equipmentParametersInput"></input>
+    </view>
+    <view>
+      <input placeholder='设备关键配件及型号(选填)' bindinput='equipmentPartsInput'></input>
+    </view>
+
+    <view>
+      <input placeholder='生产厂家' bindinput='manufacturerInput'></input>
+    </view>
+    <view>      
+        <picker mode="date" value="{{date}}" start="2000-09-01" end="2040-09-01" bindchange="bindDateChange" class="picker">
+        <text>出厂日期:{{manufacturingDate}}</text>
+        <image src="../image/bottom.png" style=""></image>
+        </picker>
+    </view>
+    <view>
+      <input placeholder='出厂编号' bindinput='manufacturingNoInput'></input>
+    </view>
+    <view>
+      <input placeholder='安装位置' bindinput="installPlaceInput"></input>
+    </view>
+    <view>      
+        <picker mode="date" value="{{date}}" start="2000-9-01" end="2040-09-01" bindchange="bindDate2Change" class="picker">
+        <text>安装日期:{{installDate}}</text>
+        <image src="../image/bottom.png" style=""></image>
+        </picker>
+    </view>
+    <view style="margin-left:10px;margin-right:10px;margin-bottom:10px;">
+      <view style="font-size:34rpx;color:#555;margin-bottom:10rpx;">上传照片:</view>
+      <block wx:for="{{picture}}" wx:for-item="item">
+        <image src="{{item}}" wx:if="{{index!=2}}" mode="widthFix" style="width:30%;margin-right:5%;" bindtap="picDetail" data-index="{{index}}"></image>
+        <image src="{{item}}" wx:else mode="widthFix" style="width:30%;" bindtap="picDetail" data-index="2"></image>
+      </block>
+      <view style="width:29%;height:120rpx;border:1px solid #ccc;line-height:120rpx;display: inline-block;border-radius:10rpx;" bindtap="addpic" wx:if="{{addShow}}">
+        <image src="../image/addpic.png" mode="widthFix" style="display:block;width:80rpx;height:80rpx;margin:20rpx auto;"></image>
+      </view>
+    </view>
+    <button class="btn" bindtap="submit" style="margin-bottom:20px;" disabled="{{disabled}}">录入</button>
+  </view>
+</view>
+<template is="picDetail" data="{{picDetailShow:picDetailShow,picUrl:picUrl}}"/>
+
+

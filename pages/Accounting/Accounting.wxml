@@ -1,0 +1,49 @@
+<import src="../template/picDetail2.wxml" />
+<view>
+   <text class="title">台账详情</text>
+   <view class="content">
+     <view class="bot5">设备id：{{equipmentId}}
+     </view>
+     <view class="bot5">项目名称：{{projectName}}
+     </view>
+     <view class="bot5">设备台帐编号：{{equipmentAccountingNo}}
+     </view>
+     <view class="bot5">设备类型：{{equipmentType}}
+     </view>
+     <view class="bot5">设备名称：{{equipmentName}}
+     </view>
+     <view class="bot5">设备型号规格：{{equipmentModel}}
+     </view>
+     <view class="bot5">设备参数：{{equipmentParameters}}
+     </view>
+     <view class="bot5">设备关键配件及型号：{{equipmentParts}}
+     </view>
+     <view class="bot5">
+     设备相片：
+      <view>
+       <!-- style="margin-left:10px;margin-right:10px;margin-bottom:10px;" -->
+      <block wx:for="{{picture}}" wx:for-item="item">
+        <image src="{{item}}" wx:if="{{index!=2}}" mode="widthFix" style="width:30%;margin-right:5%;" bindtap="picDetail" data-index="{{index}}"></image>
+        <image src="{{item}}" wx:else mode="widthFix" style="width:30%;" bindtap="picDetail" data-index="2"></image>
+      </block>
+    </view>
+     </view>
+     <view class="bot5">生产厂家：{{manufacturer}}</view>
+     <view class="bot5">出厂日期：{{manufacturingDate}}</view>
+     <view class="bot5">出厂编号：{{manufacturingNo}}</view>
+     <view class="bot5">安装位置：{{installPlace}}</view>
+     <view class="bot5">安装日期：{{installDate}}</view>
+     <!-- <view class="bot5">填表人id:{{submitStaffId}}</view> -->
+     <view class="bot5">填表人姓名：{{submitStaffName}}</view>
+     <!-- <view class="bot5">修改时间:{{modifyTime}}</view> -->
+     <view class="bot5">修改时间：{{modifyTime}}</view>
+     <view style="display:flex;flex-direction:row;justify-content:space-between;margin-top:50rpx;">
+     <button class="btn" style="margin-right:40rpx;" bindtap="editAccounting">修改</button>
+     <button class="btn"  style="margin-right:40rpx;" bindtap="queryMaintainRecord">维保记录</button>
+     <button class="btn" bindtap="queryMaintainPlan">维保计划</button>
+     </view>
+
+
+   </view>
+</view>
+<template is="picDetail2" data="{{picDetailShow:picDetailShow,picUrl:picUrl}}"/>

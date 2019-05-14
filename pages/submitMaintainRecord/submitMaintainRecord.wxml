@@ -1,0 +1,26 @@
+<import src="../template/picDetail.wxml" />
+<view>
+  <text class="title">提交维保说明</text>
+  <view class="content">
+    <view class="bot5">维护计划id：{{maintainPlanId}}</view>
+    <view class="bot5">维护计划日期：{{maintainPlanDate}}</view>
+    <view class="bot5">设备id：{{equipmentId}}</view>
+    <view class="bot5">设备类型：{{equipmentType1}}</view>
+    <view class="bot5">设备名称：{{equipmentName}}</view>
+    <view class="bot5">
+      <view class="bot5">维保备注：</view>
+      <textarea bindinput='maintainRemarkInput' value="{{maintainRemark}}"></textarea>
+    </view>
+    <view style="margin-bottom:10px;">
+      <block wx:for="{{picture}}" wx:for-item="item">
+        <image src="{{item}}" wx:if="{{index!=2}}" mode="widthFix" style="width:30%;margin-right:5%;" bindtap="picDetail" data-index="{{index}}"></image>
+        <image src="{{item}}" wx:else mode="widthFix" style="width:30%;" bindtap="picDetail" data-index="2"></image>
+      </block>
+      <view style="width:29%;height:120rpx;border:1px solid #ccc;line-height:120rpx;display: inline-block;border-radius: 10rpx;" bindtap="addpic" wx:if="{{addShow}}">
+        <image src="../image/addpic.png" mode="widthFix" style="display:block;width:80rpx;height:80rpx;margin:20rpx auto;"></image>
+      </view>
+    </view>
+    <button class="btn" disabled="{{disabled}}" bindtap="submit" style="margin-bottom:20px;">提交</button>
+  </view>
+</view>
+<template is="picDetail"  data="{{picDetailShow:picDetailShow,picUrl:picUrl}}"/>

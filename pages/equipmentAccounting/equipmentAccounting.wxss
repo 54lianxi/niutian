@@ -1,0 +1,21 @@
+/* pages/equipmentAccounting/equipmentAccounting.wxss */
+input{
+  border:1px solid #ccc;
+  height:34px;
+  margin:0 10px 0 10px;
+  box-sizing: border-box;
+  padding-left:15rpx;
+  line-height:34px;
+  font-size:32rpx;
+  border-radius:10rpx;
+  width:80%;
+  
+  
+}
+.add{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  margin-left:-350rpx;
+  z-index:1;
+}

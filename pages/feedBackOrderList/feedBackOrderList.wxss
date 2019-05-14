@@ -1,0 +1,55 @@
+/* pages/workingOrderBackList/workingOrderBackList.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.backContainer{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.headBar{
+  height: 105rpx;
+  box-sizing: border-box;
+  line-height: 105rpx;
+  background: #2980b5;
+  text-align: right;
+  color: #FFF;
+  border-radius: 10rpx;
+  padding-right: 20rpx;
+  letter-spacing: 3rpx;
+  font-size: 34rpx;
+}
+/* .listItem1{
+  min-height: 90rpx;
+  border-bottom: 2rpx solid #eeeeee;
+  padding: 10rpx 0rpx 10rpx 30rpx;
+  font-size: 32rpx;
+  position: relative;
+  color: #555;
+  letter-spacing: 2rpx;
+} */
+
+.addContainer{
+  margin-top: 120rpx;
+}
+.add{
+  font-size: 34rpx;
+  letter-spacing: 2rpx;
+  width: 700rpx;
+}
+.bottom{
+  text-align: center;
+  font-size: 28rpx;
+  color: #aaa;
+  margin: 10rpx 0rpx;
+}
+.noData{
+  text-align: center;
+  letter-spacing: 3rpx;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #F4F1F1;
+  color: red;
+}

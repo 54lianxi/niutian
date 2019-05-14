@@ -1,0 +1,25 @@
+<view style="margin-bottom:70px;">
+
+  <block wx:for="{{list}}" wx:for-item="item">
+    <view class="listItem">
+      <navigator url="/pages/orderDetail2/orderDetail2?workOrderId={{item.workOrderId}}&&type={{item.type}}&&content={{item.content}}&submitOrderStaffId={{item.submitOrderStaffId}}&&submitOrderStaffName={{item.submitOrderStaffName}}&&sendWorkOrderStatus={{item.sendWorkOrderStatus}}&&sendWorkOrderStaffId={{item.sendWorkOrderStaffId}}&&sendWorkOrderStaffName={{item.sendWorkOrderStaffName}}&&sendWorkOrderType={{item.sendWorkOrderType}}&&sendWorkOrderTime={{item.sendWorkOrderTime}}&&handleType={{item.handleType}}&&lastHandleTime={{item.lastHandleTime}}&&sendtoStaffId={{item.sendtoStaffId}}&&feedbackStatus={{item.feedbackStatus}}&&feedbackStaffId={{item.feedbackStaffId}}&&feedbackStaffName={{item.feedbackStaffName}}&&lastFeedbackTime={{item.lastFeedbackTime}}&&modifyTime={{item.modifyTime}}&&createTime={{item.createTime}}">
+        <view>工单号：{{item.workOrderId}}</view>
+        <view>派单人：{{item.sendWorkOrderStaffName}}</view>
+        <!-- <view wx:if="{{item.type==1}}">工单类型：人工派单</view>
+        <view wx:if="{{item.type==2}}">工单类型：设备故障</view>
+        <view wx:if="{{item.type==3}}">工单类型：定期保养</view> -->
+        <view wx:if="{{sendWorkOrderType==1}}">处理类型：立即处理</view>
+        <view wx:if="{{sendWorkOrderType==2}}">最后处理时间：{{lastHandleTime}}</view>
+        <view>内容：{{item.content}}</view>
+        <!-- <view wx:if="{{item.type==3}}">设备名称:{{item.equipmentName}}</view> -->
+      </navigator>
+    </view>
+  </block>
+  <view>
+    <text class="point" wx:if="{{nomore}}">已无更多</text>
+  </view>
+  <view>
+    <text class="point" wx:if="{{nodata}}">您暂时还没有任何记录</text>
+  </view>
+    <button class="btn add" bindtap="addWorkOrder" style="background:rgba(26,173,25,0.9);margin-top:50rpx;">增加工单</button>
+</view>
